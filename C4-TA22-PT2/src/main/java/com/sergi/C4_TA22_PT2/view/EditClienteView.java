@@ -32,7 +32,7 @@ public class EditClienteView {
 	 */
 	private void initialize() {
 		frmEditClient = new JFrame();
-		frmEditClient.setTitle("Edit Client");
+		frmEditClient.setTitle("Editar Client");
 		frmEditClient.setBounds(100, 100, 407, 391);
 		frmEditClient.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frmEditClient.getContentPane().setLayout(null);

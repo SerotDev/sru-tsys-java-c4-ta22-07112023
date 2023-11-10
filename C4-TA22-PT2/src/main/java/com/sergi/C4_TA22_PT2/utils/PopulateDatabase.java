@@ -44,17 +44,17 @@ public class PopulateDatabase {
 					+ "title VARCHAR(250) DEFAULT NULL,"
 					+ "director VARCHAR(250) DEFAULT NULL,"
 					+ "cli_id INT(11) DEFAULT NULL,"
-					+ "FOREIGN KEY (cli_id) REFERENCES clientes (id) ON DELETE CASCADE ON UPDATE SET NULL");
+					+ "FOREIGN KEY (cli_id) REFERENCES clientes (id) ON DELETE SET NULL ON UPDATE CASCADE");
 			
 			//inserts of videos data
 			connection.insertData("videos", ""
-			        + "(1, \"Título del Video 1\", \"Director 1\", 1),"
-			        + "(2, \"Título del Video 2\", \"Director 2\", 2),"
-			        + "(3, \"Título del Video 3\", \"Director 3\", 3),"
-			        + "(4, \"Título del Video 4\", \"Director 4\", 4),"
-			        + "(5, \"Título del Video 5\", \"Director 5\", 5),"
-			        + "(6, \"Título del Video 6\", \"Director 6\", 6),"
-			        + "(7, \"Título del Video 7\", \"Director 7\", 7)");
+			        + "(\"Título del Video 1\", \"Director 1\", 1),"
+			        + "(\"Título del Video 2\", \"Director 2\", 2),"
+			        + "(\"Título del Video 3\", \"Director 3\", 3),"
+			        + "(\"Título del Video 4\", \"Director 4\", 4),"
+			        + "(\"Título del Video 5\", \"Director 5\", 5),"
+			        + "(\"Título del Video 6\", \"Director 6\", 6),"
+			        + "(\"Título del Video 7\", \"Director 7\", 7)");
 		}
 		//it closes the connection
 		connection.closeConnection();	

@@ -27,6 +27,7 @@ public class ClienteView {
 	public JButton btnDeleteCliente;
 	public JButton btnAddNewCliente;
 	public JButton btnEditCliente;
+	public JButton btnViewVideos;
 
 	/**
 	 * Create the application.
@@ -41,7 +42,7 @@ public class ClienteView {
 	private void initialize() {
 		
 		frmClientes = new JFrame();
-		frmClientes.setBounds(100, 100, 650, 459);
+		frmClientes.setBounds(100, 100, 650, 450);
 		frmClientes.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frmClientes.setLocationRelativeTo(null);
 		frmClientes.setResizable(false);
@@ -98,7 +99,7 @@ public class ClienteView {
 	    btnAddNewCliente.setBounds(316, 362, 140, 40);
 	    mainPanel.add(btnAddNewCliente);
 	    
-	    JButton btnViewVideos = new JButton("Ver Videos");
+	    btnViewVideos = new JButton("Ver Videos");
 	    btnViewVideos.setFont(new Font("Tahoma", Font.BOLD, 14));
 	    btnViewVideos.setBounds(466, 362, 140, 40);
 	    mainPanel.add(btnViewVideos);

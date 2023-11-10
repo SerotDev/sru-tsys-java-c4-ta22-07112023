@@ -26,7 +26,7 @@ public class ClienteService {
 				+ "\"" + apellidos + "\","
 				+ "\"" + direccion + "\","
 				+ "\"" + dni + "\","
-				+ "\"" + fecha + "\")"); //condition
+				+ "\"" + fecha + "\")");
 		//it closes the connection
 		connection.closeConnection();
 	}

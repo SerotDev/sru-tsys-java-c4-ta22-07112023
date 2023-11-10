@@ -5,12 +5,16 @@ import java.awt.event.ActionListener;
 import java.util.ArrayList;
 
 import javax.swing.JOptionPane;
+import javax.swing.text.View;
 
 import com.sergi.C4_TA22_PT2.model.Cliente;
 import com.sergi.C4_TA22_PT2.services.ClienteService;
 import com.sergi.C4_TA22_PT2.view.AddClienteView;
+import com.sergi.C4_TA22_PT2.view.AddVideoView;
 import com.sergi.C4_TA22_PT2.view.ClienteView;
 import com.sergi.C4_TA22_PT2.view.EditClienteView;
+import com.sergi.C4_TA22_PT2.view.EditVideoView;
+import com.sergi.C4_TA22_PT2.view.VideoView;
 
 public class ClienteController {
 	private ClienteView clienteView;
@@ -30,6 +34,7 @@ public class ClienteController {
 		clienteView.btnAddNewCliente.addActionListener(addClienteBtn);
 		clienteView.btnEditCliente.addActionListener(editClienteBtn);
 		clienteView.btnDeleteCliente.addActionListener(deleteClienteBtn);
+		clienteView.btnViewVideos.addActionListener(viewVideosBtn);
 		//add action listener to add client view
 		addClienteView.btnAddCliente.addActionListener(addCliente);
 		//add action listener to edit client view
@@ -70,7 +75,7 @@ public class ClienteController {
 			//if it have some problem during execution
 			} catch (Exception e2) {
 				JOptionPane.showMessageDialog(null, "No se ha podido insertar el nuevo cliente","ERROR",JOptionPane.CLOSED_OPTION);
-				System.out.println(e2);
+				System.out.println("Exeption:" + e2);
 			}
 			//update the client values in ClienteView
 			updateClientes();
@@ -96,7 +101,7 @@ public class ClienteController {
 				editClienteView.setVisible(true);
 			} catch (Exception e2) {
 				JOptionPane.showMessageDialog(null, "No se ha podido encontrar el cliente, si deseas editar el usuario inténtalo de nuevo.","ERROR",JOptionPane.CLOSED_OPTION);
-				System.out.println(e2);
+				System.out.println("Exeption:" + e2);
 			}
 		}
 	};
@@ -121,7 +126,7 @@ public class ClienteController {
 			//if it have some problem during execution
 			} catch (Exception e2) {
 				JOptionPane.showMessageDialog(null, "No se ha podido actualizar el cliente","ERROR",JOptionPane.CLOSED_OPTION);
-				System.out.println(e2);
+				System.out.println("Exeption:" + e2);
 			}
 			//update the client values in ClienteView
 			updateClientes();
@@ -145,9 +150,22 @@ public class ClienteController {
 				}
 			} catch (Exception e2) {
 				JOptionPane.showMessageDialog(null, "No se ha podido eliminar el cliente, si deseas eliminar el usuario inténtalo de nuevo.","ERROR",JOptionPane.CLOSED_OPTION);
-				System.out.println(e2);
+				System.out.println("Exeption:" + e2);
 			}
 			
+		}
+	};
+	
+	ActionListener viewVideosBtn = new ActionListener() {
+		public void actionPerformed(ActionEvent e) {
+			//we set clientes window hidden
+			clienteView.setVisible(false);
+			//it initialize the Video Views using VideoController
+			VideoView videoView = new VideoView();
+			AddVideoView addVideoView = new AddVideoView();
+			EditVideoView editVideoView = new EditVideoView();
+			VideoController videoController = new VideoController (videoView, addVideoView, editVideoView); 
+			videoController.initializeView();
 		}
 	};
 
